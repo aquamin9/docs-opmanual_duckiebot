@@ -42,18 +42,12 @@ Check that every Duckiebot has sufficient battery charge and that they are all p
 
 ### Start the demo containers
 
-Running this demo requires almost all of the main Duckietown ROS nodes to be up and running. As these span 3 Docker images (`dt-duckiebot-interface`, `dt-car-interface`, and `dt-core`). The `dt-duckiebot-interface` and `dt-car-interface` container typically starts with robot startup. You will need to start `dt-core` manually.
-
-First, check to make sure that `dt-duckiebot-interface` and `dt-car-interface` are running on your duckiebot via portainer, if not, do:
-
-    laptop $ dts duckiebot demo --demo_name duckiebot-interface --duckiebot_name ![DUCKIEBOT_NAME] --package_name duckiebot_interface --image duckietown/dt-duckiebot-interface:daffy-arm32v7
-
-    laptop $ dts duckiebot demo --demo_name car-interface --duckiebot_name ![DUCKIEBOT_NAME] --package_name car_interface --image duckietown/dt-car-interface:daffy-arm32v7
+Running this demo requires almost all of the main Duckietown ROS nodes to be up and running. Make sure that `ros`, `car-interface` and `duckiebot-interface` are running.
 
 Then, we are ready to start the high-level pipeline for indefinite navigation:
 
-    laptop $ dts duckiebot demo --demo_name indefinite_navigation --duckiebot_name ![DUCKIEBOT_NAME] --package_name duckietown_demos
-
+    laptop $ dts duckiebot demo --demo_name indefinite_navigation --duckiebot_name ![DUCKIEBOT_NAME] 
+    
 You have to wait a while for everything to start working. While you wait, you can check in Portainer if all the containers started successfully and in their logs for any possible issues.
 
 ### Make your Duckiebot drive autonomously!
